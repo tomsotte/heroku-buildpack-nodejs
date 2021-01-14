@@ -55,6 +55,16 @@ source "$BP_DIR/lib/builddata.sh"
 # shellcheck source=lib/yarn-2.sh
 source "$BP_DIR/lib/yarn-2.sh"
 
+### Support subfolder pack
+
+if [ -f $ENV_DIR/PROJECT_PATH ]; then
+	PROJECT_PATH=`cat $ENV_DIR/PROJECT_PATH`
+  if [ -d $BUILD_DIR/$PROJECT_PATH ]; then
+    BUILD_DIR="$BUILD_DIR/$PROJECT_PATH"
+		echo "-----> Subdir buildpack in $BUILD_DIR"
+	fi
+fi
+
 export PATH="$BUILD_DIR/.heroku/node/bin:$BUILD_DIR/.heroku/yarn/bin":$PATH
 
 LOG_FILE=$(mktemp -t node-build-log.XXXXX)
