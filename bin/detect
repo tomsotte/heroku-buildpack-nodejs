@@ -2,7 +2,7 @@
 # bin/detect <build-dir>
 
 # Trust the buildpack user this is a nodejs app
-exit 1
+exit 0
 
 error() {
   local c="2,999 s/^/ !     /"
