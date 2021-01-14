@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 # bin/detect <build-dir>
 
+# Trust the buildpack user this is a nodejs app
+exit 1
+
 error() {
   local c="2,999 s/^/ !     /"
 	# send all of our output to stderr
